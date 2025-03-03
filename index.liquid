@@ -1,7 +1,33 @@
 ---
-layout: layout.liquid
-title: 11ty Boilerplate
+title: "Alpine.js + API Integration"
+layout: "layout.liquid"
 ---
 
-<h1>Yet Another 11ty <strong>Boilerplate</strong></h1>
-<img alt="pine" src="/images/pine.png" width="50" />
+<h1 class="text-2xl font-bold mb-6">Alpine.js + JSONPlaceholder API</h1>
+
+<!-- Fetching Users -->
+<div x-data="{ users: [] }" x-init="fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(data => users = data)">
+  <h2 class="text-xl font-semibold mb-4">Users</h2>
+  <template x-for="user in users" :key="user.id">
+    <div class="p-4 bg-white shadow rounded mb-4">
+      <p class="font-bold" x-text="user.name"></p>
+      <p class="text-gray-600" x-text="user.email"></p>
+      <p class="text-sm text-gray-500" x-text="user.company.name"></p>
+    </div>
+  </template>
+</div>
+
+<!-- Fetching Posts -->
+<div x-data="{ posts: [] }" x-init="fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+    .then(data => posts = data.slice(0, 5))">
+  <h2 class="text-xl font-semibold mb-4">Recent Posts</h2>
+  <template x-for="post in posts" :key="post.id">
+    <div class="p-4 bg-white shadow rounded mb-4">
+      <p class="font-bold" x-text="post.title"></p>
+      <p class="text-gray-600" x-text="post.body"></p>
+    </div>
+  </template>
+</div>
