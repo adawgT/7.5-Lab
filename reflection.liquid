@@ -3,17 +3,18 @@ title: "AI Tool Reflection"
 layout: "layout.liquid"
 ---
 
-<h1 class="text-2xl font-bold mb-6">Reflection on AI Tools</h1>
+<h1 class="text-3xl font-bold mb-6 text-center">Reflection on AI Tools</h1>
 
-<p>For this assignment, I tested different AI models in GitHub Copilot to assist with Alpine.js, API integration, and styling.</p>
+<div class="bg-white p-6 rounded-lg shadow-md">
+  <p>
+    During this project, I tested different AI-powered coding assistants, including <strong>GitHub Copilot</strong> and <strong>GPT-4o</strong>, to help with integrating Alpine.js, 11ty, and an external JSON API. The AI tools were helpful for quickly generating boilerplate code and structuring my Alpine.js components, but they also had limitations, particularly with script placement and 11ty-specific configurations.
+  </p>
 
-<h2 class="text-xl font-semibold mt-4">Testing AI Models</h2>
-<p>I compared the default <strong>GPT-4o</strong> model with another available option. Here’s what I found:</p>
+  <p class="mt-4">
+    One of the biggest advantages of using AI was its ability to generate quick and functional API fetch examples. For instance, when I asked, <em>"How do I fetch and display JSONPlaceholder users using Alpine.js?"</em>, GPT-4o provided a working example with `x-data` and `x-init`. However, it initially used `fetch()` inside an inline script rather than leveraging Alpine stores, which I later corrected. On the other hand, GitHub Copilot was better at suggesting inline Tailwind classes when I prompted, <em>"Style this API output with Tailwind."</em> This saved time but still required manual adjustments.
+  </p>
 
-<ul class="list-disc pl-6">
-  <li>GPT-4o provided more accurate responses for JavaScript logic.</li>
-  <li>The alternative model suggested inefficient code for fetching data.</li>
-</ul>
-
-<h2 class="text-xl font-semibold mt-4">Strengths & Weaknesses</h2>
-<p>AI was helpful in generating Alpine.js components quickly, but it sometimes suggested outdated syntax. A key takeaway is that while AI can accelerate development, manual debugging is still necessary.</p>
+  <p class="mt-4">
+    Despite the AI’s efficiency, it struggled with Eleventy-specific configurations. When I asked, <em>"How do I set up passthrough for styles in 11ty?"</em>, GPT-4o gave a general Node.js file system answer instead of modifying `.eleventy.js` correctly. GitHub Copilot was more reliable here, as it recognized the correct structure for Eleventy’s passthrough settings. Overall, AI was most useful for syntax corrections and repetitive tasks, but manual debugging and logic structuring were necessary to ensure a fully functional and optimized site.
+  </p>
+</div>
